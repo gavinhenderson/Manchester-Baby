@@ -4,6 +4,19 @@
 #include "BinaryConversion.h"
 using namespace std;
 
+// constructor
+BinaryConversion::BinaryConversion()
+{
+  binaryInt = 0;
+  binaryString = "";
+}
+
+// destructor
+BinaryConversion::~BinaryConversion()
+{
+
+}
+
 void BinaryConversion::decimalConversion(long decimal, char *binary)
 {
       int k = 0;
@@ -45,11 +58,13 @@ unsigned BinaryConversion::binaryConversion(string &bin)
     return res;
 }
 
+// converts binary to decimal
 string BinaryConversion::getBinaryString()
 {
   return binaryString;
 }
 
+// Returns binaryInt
 int BinaryConversion::getBinaryInt()
 {
   return binaryInt;
