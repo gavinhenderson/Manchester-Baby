@@ -13,6 +13,7 @@ class Baby{
 		string presentInstruction;
 		int operand;
 		int function;
+		int result;
 	public:	
 		//Run the function on the operand
 		void execute();
@@ -25,6 +26,9 @@ class Baby{
 		//stored in them and save them to the class. This will use string
 		//manipulation and the binary conversion class
 		void decode();
+		
+		//Displays the current happenings of the baby
+		void displayStatus();
 }
 
 #endif
