@@ -8,27 +8,21 @@ using namespace std;
 class BinaryConversion{
 	private:
 		string binaryString;
-		int binaryInt;
+		unsigned binaryInt;
 	public:
 		//Constructor that will create a binary conversion and convert the int
 		//that is passed in and save the result to binaryString
-		void decimalConversion(long decimal, char *binary);
+		BinaryConversion(long decimal);
 		
 		//Constructor that will create a binary conversion and convert the string
 		//that is passed in and save the result to int
-		unsigned binaryConversion(string &bin);
+		BinaryConversion(string bin);
 		
 		//Returns the binaryString
 		string getBinaryString();
 		
 		//Returns the binaryInt
-		int getBinaryInt();
-
-		// constructor
-		BinaryConversion();
-
-		// destructor
-		~BinaryConversion();
+		unsigned getBinaryInt();
 };
 
 #endif
