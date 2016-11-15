@@ -6,9 +6,15 @@
 using namespace std;
 
 class FileHandler{
+	private:
+		string store[32]
 	public:
-		static string[] readFile(string filename)
-		static void writeFile(string[] lines, string filename);
+		//Reads in the code from a specific file name and saves it to the
+		//32 string array called store
+		void readInCode(string fileName);
+		
+		//returns the code that was read
+		string[32] getStore();
 }
 
 #endif
