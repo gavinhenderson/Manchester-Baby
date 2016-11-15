@@ -12,9 +12,15 @@ class Baby{
 		int controlInstruction;
 		string presentInstruction;
 		int operand;
-		int function;
+		int operator;
 		int result;
-	public:	
+	public:
+		//Constructor
+		Baby();
+		
+		//Increment the CI by 1
+		void incrementCI();
+	
 		//Run the function on the operand
 		void execute();
 		
