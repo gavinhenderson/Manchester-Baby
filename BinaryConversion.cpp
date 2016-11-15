@@ -45,3 +45,13 @@ unsigned BinaryConversion::binaryConversion(string &bin)
     return res;
 }
 
+string BinaryConversion::getBinaryString()
+{
+  return binaryString;
+}
+
+int BinaryConversion::getBinaryInt()
+{
+  return binaryInt;
+}
+
