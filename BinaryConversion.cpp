@@ -13,10 +13,10 @@ BinaryConversion::BinaryConversion(long decimal)
     int remain;
     char temp[80];
 
+	
     do{
 		remain = decimal%2;
         decimal = decimal/2;
-        // Converts 0 or 1 to char
         temp[k] = remain + '0';
         k++;
 	}while (decimal > 0);

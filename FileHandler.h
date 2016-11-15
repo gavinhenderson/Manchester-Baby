@@ -16,12 +16,6 @@ class FileHandler
 		
 		//returns the code that was read
 		string* getStore();
-
-		//Constructor
-		FileHandler();
-
-		//Destructor
-		~FileHandler();
 };
 
 #endif
