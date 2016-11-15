@@ -1,4 +1,5 @@
 #include <iostream>
+#include "BinaryConversion.h"
 
 #ifndef _BABY_H
 #define _BABY_H
@@ -12,7 +13,7 @@ class Baby{
 		int controlInstruction;
 		string presentInstruction;
 		int operand;
-		int operator;
+		int opcode;
 		int result;
 	public:
 		//Constructor
@@ -35,6 +36,6 @@ class Baby{
 		
 		//Displays the current happenings of the baby
 		void displayStatus();
-}
+};
 
 #endif

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "BinaryConversion.h"
 
 using namespace std;
@@ -62,7 +63,7 @@ unsigned BinaryConversion::getBinaryInt()
 }
 
 //TESTER
-
+/*
 int main()
 {
     BinaryConversion* binCon = new BinaryConversion("11111111111111111111111111111111");
@@ -76,3 +77,4 @@ int main()
     
     return 0;
 }
+*/

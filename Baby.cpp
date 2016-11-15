@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "Baby.h"
 
 Baby::Baby(){
@@ -10,37 +11,25 @@ void Baby::incrementCI(){
 }
 
 void Baby::fetch(){
-	presentInstruction = store[controlInstruction]
+	presentInstruction = store[controlInstruction];
 }
 
 void Baby::decode(){
-	presentInstruction = "10010110100101101001011010010110";
-
-
-
-
-	string buffer;
-	stringstream ss(presentInstruction);
-	vector<string> part;
-	while(ss>>buffer){
-		part.push_back(buffer);
-
-	}
-	for(vector<char>::const_iterator i = part.begin(); i != part.end(); i++){
-		cout << *i << ' ';
-	}
-/*
-	cout << operand;
-	cout << "\n";
-	cout << function;
-	*/
-}
-
-	//Take in presentInstruction and split it into the operator and operand
+	presentInstruction = "11100000000000100000000000000000";
+	string operandString = presentInstruction.substr(0,5);
+	string opcodeString = presentInstruction.substr(13,3);
+	reverse(operandString.begin(), operandString.end());
+	reverse(opcodeString.begin(), opcodeString.end());
+	BinaryConversion* binary1 = new BinaryConversion(operandString);
+	BinaryConversion* binary2 = new BinaryConversion(opcodeString);
+	operand = binary1->getBinaryInt();
+	opcode = binary2->getBinaryInt();
+	delete binary1;
+	delete binary2;
 }
 
 void Baby::execute(){
-	switch(function){
+	switch(opcode){
 		case 0:
 			controlInstruction = operand;
 			break;
@@ -61,4 +50,10 @@ void Baby::execute(){
 		case 7:
 			break;
 	}
+}
+
+int main(){
+	Baby* baby = new Baby();
+	baby->decode();
+	return 0;
 }
