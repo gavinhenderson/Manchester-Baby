@@ -8,5 +8,7 @@ using namespace std;
 class FileHandler{
 	public:
 		static string[] readFile(string filename)
-		static void writeFile(string[] linse, string filename);
+		static void writeFile(string[] lines, string filename);
 }
+
+#endif
