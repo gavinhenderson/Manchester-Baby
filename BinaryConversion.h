@@ -16,7 +16,7 @@ class BinaryConversion{
 		
 		//Constructor that will create a binary conversion and convert the string
 		//that is passed in and save the result to int
-		void binaryConversion(string &bin);
+		unsigned binaryConversion(string &bin);
 		
 		//Returns the binaryString
 		string getBinaryString();
