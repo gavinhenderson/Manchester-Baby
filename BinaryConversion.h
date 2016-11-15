@@ -12,11 +12,11 @@ class BinaryConversion{
 	public:
 		//Constructor that will create a binary conversion and convert the int
 		//that is passed in and save the result to binaryString
-		void BinaryConversion(int myInt);
+		void DecimalConversion(long decimal, char *binary);
 		
 		//Constructor that will create a binary conversion and convert the string
 		//that is passed in and save the result to int
-		void BinaryConversion(string myString);
+		void BinaryConversion(string &bin);
 		
 		//Returns the binaryString
 		string getBinaryString();
