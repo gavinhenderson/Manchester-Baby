@@ -5,16 +5,23 @@
 
 using namespace std;
 
-class FileHandler{
+class FileHandler
+{
 	private:
-		string store[32]
+		string store[32];
 	public:
 		//Reads in the code from a specific file name and saves it to the
 		//32 string array called store
 		void readInCode(string fileName);
 		
 		//returns the code that was read
-		string[32] getStore();
-}
+		string* getStore();
+
+		//Constructor
+		FileHandler();
+
+		//Destructor
+		~FileHandler();
+};
 
 #endif
