@@ -23,6 +23,12 @@ class BinaryConversion{
 		
 		//Returns the binaryInt
 		int getBinaryInt();
-}
+
+		// constructor
+		BinaryConversion();
+
+		// destructor
+		~BinaryConversion();
+};
 
 #endif
