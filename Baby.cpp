@@ -31,19 +31,27 @@ void Baby::decode(){
 void Baby::execute(){
 	switch(opcode){
 		case 0:
-			controlInstruction = operand;
+			//JMP
+			controlInstruction = store[operand];
 			break;
 		case 1:
+			//JRP
 			controlInstruction += operand;
 			break;
 		case 2:
-			
+			//LDN - load negative X into the accumulator
+
 			break;
 		case 3:
+			//STO - store the result as S
+
 			break;
 		case 4:
+			//SUB - Subtract Y from the value at the accumulator
+
 			break;
 		case 5:
+			//CMP - skup to the next 
 			break;
 		case 6:
 			break;
