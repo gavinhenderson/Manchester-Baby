@@ -36,6 +36,6 @@ class Baby{
 		
 		//Displays the current happenings of the baby
 		void displayStatus();
-};
 
+};
 #endif
