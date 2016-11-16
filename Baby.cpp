@@ -7,7 +7,15 @@ Baby::Baby(){
 }
 
 void Baby::incrementCI(){
-	controlInstruction ++;
+	BinaryConversion* bin = new BinaryConversion(controlInstuction);
+	int CiInt = bin->getBinaryInt();
+	delete bin;
+	
+	CiInt++;
+	
+	BinaryConversion* bin = new BinaryConversion(CiInt);
+	controlInstruction = bin->getBinaryString();
+	delete bin;
 }
 
 void Baby::fetch(){
@@ -29,33 +37,30 @@ void Baby::decode(){
 
 void Baby::execute(){	
 	switch(opcode){
-<<<<<<< HEAD
 		case 0: //JMP
-			controlInstruction = operand;
-=======
-		case 0:
-			//JMP
 			controlInstruction = store[operand];
->>>>>>> 81049273b61995421ef4a454defda4512f5a5642
 			break;
 		case 1:
 			//JRP
-			controlInstruction += operand;
+			BinaryConversion* bin = new BinaryConversion(controlInstuction);
+			int CiInt = bin->getBinaryInt();
+			delete bin;
+			CiInt+=operand;
+			BinaryConversion* bin = new BinaryConversion(CiInt);
+			controlInstruction = bin->getBinaryString();
+			delete bin;
 			break;
 		case 2:
-<<<<<<< HEAD
 			accumulator = operand*(-1)
 			break;
 		case 3:
 			operand = accumulator
-=======
 			//LDN - load negative X into the accumulator
 
 			break;
 		case 3:
 			//STO - store the result as S
 
->>>>>>> 81049273b61995421ef4a454defda4512f5a5642
 			break;
 		case 4:
 			//SUB - Subtract Y from the value at the accumulator

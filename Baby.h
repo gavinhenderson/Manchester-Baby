@@ -10,7 +10,7 @@ class Baby{
 	private:
 		string store[32];
 		int accumulator;
-		int controlInstruction;
+		string controlInstruction;
 		string presentInstruction;
 		int operand;
 		int opcode;
