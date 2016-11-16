@@ -3,7 +3,7 @@
 #include "Baby.h"
 
 Baby::Baby(){
-	controlInstruction = 0;
+	controlInstruction = -1;
 }
 
 void Baby::incrementCI(){
@@ -15,7 +15,6 @@ void Baby::fetch(){
 }
 
 void Baby::decode(){
-	presentInstruction = "11100000000000100000000000000000";
 	string operandString = presentInstruction.substr(0,5);
 	string opcodeString = presentInstruction.substr(13,3);
 	reverse(operandString.begin(), operandString.end());
@@ -28,18 +27,19 @@ void Baby::decode(){
 	delete binary2;
 }
 
-void Baby::execute(){
+void Baby::execute(){	
 	switch(opcode){
-		case 0:
+		case 0: //JMP
 			controlInstruction = operand;
 			break;
 		case 1:
 			controlInstruction += operand;
 			break;
 		case 2:
-			
+			accumulator = operand*(-1)
 			break;
 		case 3:
+			operand = accumulator
 			break;
 		case 4:
 			break;

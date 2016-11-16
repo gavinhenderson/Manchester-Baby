@@ -9,7 +9,7 @@ using namespace std;
 class Baby{
 	private:
 		string store[32];
-		int Accumulator;
+		int accumulator;
 		int controlInstruction;
 		string presentInstruction;
 		int operand;

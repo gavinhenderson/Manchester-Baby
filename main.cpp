@@ -8,4 +8,5 @@ runBaby(){
 	loop
 		myBaby->incrementCI();
 		myBaby->fetch();
+		myBaby->decode();
 }
