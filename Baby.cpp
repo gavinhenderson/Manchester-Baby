@@ -64,8 +64,10 @@ string Baby::decToBin(signed long dec, int length){
 //Takes in a binary number of any length then returns the
 //result as a signed long
 signed long Baby::binToDec(string bin){
+	//padded the string if its not 32 bits
 	bin = padString(bin);
 
+	//Runs if positive
 	if(bin[0]=='0'){
 		signed long total = 0;
 		for(int i=0; i<32; i++){
@@ -75,6 +77,7 @@ signed long Baby::binToDec(string bin){
 			}
 		}
 		return total;
+	//Runs if negative
 	}else{
 		//Rewrite string without leading bit
 		string newString = bin.substr(1,31);
@@ -107,18 +110,26 @@ signed long Baby::binToDec(string bin){
 
 //Takes in a binary string and returns the negative of the string
 string Baby::negate(string neg){
+	//Converts given string to number
 	signed long negNo = Baby::binToDec(neg);
+
+	//Gets the negitve of the number given
 	negNo = negNo*(-1);
+
+	//Converts that back to string and returns it
 	neg = Baby::decToBin(negNo,32);
 	return neg;
 }
 
 //takes in a file name and a pointer to the store that is to be loaded
 bool Baby::getStore(string fileName, string* store){
+	//Creates a file and opens the given filename
 	fstream myFile;
 	int i=0;
 	myFile.open(fileName.c_str(), ios::out | ios::in);
 	string currentLine;
+
+	//Reads each line if it exists and return true
 	if(myFile.is_open()){
 		while(getline(myFile, currentLine)){
 			store[i] = currentLine;
@@ -128,6 +139,7 @@ bool Baby::getStore(string fileName, string* store){
 		}
 		myFile.close();
 		return true;
+	//Lets user know it doesnt exist and then return false
 	}else{
 		cout << "File not found\n";
 		return false;
@@ -137,6 +149,8 @@ bool Baby::getStore(string fileName, string* store){
 //reverses the string it is given
 string Baby::reverseString(string rev){
 	string temp;
+	//Loops through the given string backwards and saves it to the
+	//new string
 	for(int i=rev.size(); i>0; i--){
 		temp += rev[i-1];
 	}
@@ -145,16 +159,26 @@ string Baby::reverseString(string rev){
 
 //Given an instruction and pulls out the opcode and returns it
 int Baby::getOpcode(string myInstruction){
+	//Uses substring to get the needed but of code
 	string opcodeString = myInstruction.substr(16,3);
+
+	//Pads that string
 	opcodeString = Baby::padString(opcodeString);
+
+	//Converts it to a number and returns it
 	signed long opcode = Baby::binToDec(opcodeString);
 	return opcode;
 }
 
 //Given an instruction and pulls out the operand and returns it
 int Baby::getOperand(string myInstruction){
+	//Uses substring to get the needed bit of code
 	string operandString = myInstruction.substr(27,5);
+
+	//Pads the string
 	operandString = padString(operandString);
+
+	//Converts it to a number and returns it
 	signed long operand = Baby::binToDec(operandString);
 	return operand;
 }
@@ -162,6 +186,8 @@ int Baby::getOperand(string myInstruction){
 //Sets a binary string that is less than 32 to its 32 equivalent.
 string Baby::padString(string pad){
 	string newString = "00000000000000000000000000000000";
+
+	//Adds the given string to the 'newString'
 	for(int i=0; i<pad.size(); i++){
 		newString[32-pad.size()+i] = pad[i];
 	}
