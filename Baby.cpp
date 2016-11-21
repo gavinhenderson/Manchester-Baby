@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <cmath>
 #include "Baby.h"
 
@@ -192,4 +193,13 @@ string Baby::padString(string pad){
 		newString[32-pad.size()+i] = pad[i];
 	}
 	return newString;
+}
+
+//Takes in a string that is a number and returns it as an int
+int Baby::strToInt(string in)
+{
+	int x=0;
+	stringstream convert(in);
+	convert >> x;
+	return x;
 }

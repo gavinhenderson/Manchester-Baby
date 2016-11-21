@@ -31,6 +31,9 @@ class Baby{
 
 		//Takes in a binary string and returns padded 32 bit string
 		static string padString(string pad);
+		
+		//converts string to integer
+		static int strToInt(string in);
 };
 
 #endif
