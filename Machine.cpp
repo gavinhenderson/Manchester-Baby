@@ -1,3 +1,12 @@
+/*
+Manchester Baby - AC21009
+Team 5
+Daniel Kelly: 150024764 
+Gavin Henderson: 150010848
+Conor King: 150024944
+William Doherty: 150019622
+*/
+
 #include <iostream>
 #include "Machine.h"
 
@@ -49,7 +58,7 @@ void Machine::incrementControl(){
 	
 	//Display it in a meaningful way
 	cout << CI-1 << " >> " << CI << "\n";
-	cout << startingCI << " >> " << controlInstruction << "\n"
+	cout << startingCI << " >> " << controlInstruction << "\n";
 	cout << "\n";
 }
 
@@ -207,10 +216,7 @@ bool Machine::execute(){
 }
 
 int main(){
-	cout << "Please enter the file name text file you want to read: ";
-	string input;
-	getline(cin, input);
-	Machine* babyMachine = new Machine(input);
+	Machine* babyMachine = new Machine("Assembled.txt");
 	babyMachine->runMachine();
 	cout << "///////////////////////////////////////\n";
 	cout << "////////////// STOP ///////////////////\n";

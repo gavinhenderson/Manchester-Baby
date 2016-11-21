@@ -1,3 +1,12 @@
+/*
+Manchester Baby - AC21009
+Team 5
+Daniel Kelly: 150024764 
+Gavin Henderson: 150010848
+Conor King: 150024944
+William Doherty: 150019622
+*/
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -17,6 +26,7 @@ Line::Line()
 	operandBin = "";
 }
 
+//test function that displays the components of the string
 void Line::displayTest(){
 	cout << lineNo << endl;
 	cout << label << endl;
@@ -25,18 +35,60 @@ void Line::displayTest(){
 	cout << endl;
 }
 
-string Line::getLabel(){
-	return label;
+//getters and setters
+string Line::getBinary(){
+	return binary;
 }
 
-void Line::setLineNo(int i){
-	lineNo = i;
+void Line::setBinary(string newBin){
+	binary = newBin;
+}
+
+void Line::setOperandBin(string newOperandBin){
+	operandBin = newOperandBin;
+}
+
+string Line::getOperandString(){
+	return operandString;
 }
 
 int Line::getLineNo(){
 	return lineNo;
 }
 
+string Line::getOpcodeString(){
+	return opcodeString;
+}
+
+void Line::setOpcodeString(string newOpcodeString){
+	opcodeString = newOpcodeString;
+}
+
+string Line::getLabel(){
+	return label;
+}
+
+void Line::setLabel(string newLabel){
+	label = newLabel;
+}
+
+void Line::setOpcodeBin(string newOpcodeBin){
+	opcodeBin = newOpcodeBin;
+}
+
+void Line::setLineNo(int newLineNo){
+	lineNo = newLineNo;
+}
+
+string Line::getOpcodeBin(){
+	return opcodeBin;
+}
+
+string Line::getOperandBin(){
+	return operandBin;
+}
+
+//function which splits a string from a parameter into its compenents
 void Line::splitString(string line)
 {
 	//State what we are using as the delimiter of the string
@@ -77,60 +129,9 @@ void Line::splitString(string line)
 		operandString = smallLine.substr(0, line.find(';'));
 	}
 }
-
-void Line::setBinary(Line lines[32])
+	
+//destructor
+Line::~Line()
 {
-	if(opcodeString == "JMP")
-	{
-		opcodeBin = "000";
-	}
-	if(opcodeString == "JRP")
-	{
-		opcodeBin = "100";
-	}
-	if(opcodeString == "LDN")
-	{
-		opcodeBin = "010";
-	}
-	if(opcodeString == "STO")
-	{
-		opcodeBin = "110";
-	}
-	if(opcodeString == "SUB")
-	{
-		opcodeBin = "001";
-	}
-	if(opcodeString == "CMP")
-	{
-		opcodeBin = "110";
-	}
-	if(opcodeString == "STP")
-	{
-		opcodeBin = "111";
-	}
-	if(opcodeString == "VAR")
-	{
-		opcodeBin = "000";
-	}
 
-	int opInt = -1;
-
-	for(int i=0; i<32; i++)
-	{
-		if(operandString.compare(lines[i].getLabel())==0)
-		{
-			operandInt = lines[i].getLineNo();
-		}
-	}
-
-	if(opInt!=-1){
-		operandString = Baby::reverseString(Baby::decToBin(operandInt,13));
-	}else{
-		operandInt = Baby::strToInt(operandString);
-		operandBin = Baby::reverseString(Baby::decToBin(operandInt,13));
-	}
-
-	binary = operandBin + opcodeBin + "0000000000000000";
-	cout << binary << endl;
-	//Baby::writeToFile(binary, "Assembled.txt");
 }

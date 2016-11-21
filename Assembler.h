@@ -1,3 +1,12 @@
+/*
+Manchester Baby - AC21009
+Team 5
+Daniel Kelly: 150024764 
+Gavin Henderson: 150010848
+Conor King: 150024944
+William Doherty: 150019622
+*/
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -32,8 +41,12 @@ class Assembler
 		//versions of themselves
 		void assemble();
 
-		//Make sure we delete vars in linestore
-		//Assembler();
+		//function which constructs binary strings from a parameter of an instance of line
+		//then passes the binary string to the writeToFile function
+		void saveBinary(Line* line);
+
+		//destructor
+		~Assembler();
 };
 
 #endif

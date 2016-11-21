@@ -1,3 +1,12 @@
+/*
+Manchester Baby - AC21009
+Team 5
+Daniel Kelly: 150024764 
+Gavin Henderson: 150010848
+Conor King: 150024944
+William Doherty: 150019622
+*/
+
 #include <iostream>
 
 #ifndef _BABY_H
@@ -34,6 +43,12 @@ class Baby{
 		
 		//converts string to integer
 		static int strToInt(string in);
+
+		//creates a text file from file parameter and then writes to it using line parameter
+		static void writeToFile(string line);
+
+		//function which cleans a file which the program will then write to
+		static void cleanFile();
 };
 
 #endif

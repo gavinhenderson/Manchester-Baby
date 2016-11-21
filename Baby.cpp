@@ -1,9 +1,17 @@
+/*
+Manchester Baby - AC21009
+Team 5
+Daniel Kelly: 150024764 
+Gavin Henderson: 150010848
+Conor King: 150024944
+William Doherty: 150019622
+*/
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <cmath>
 #include "Baby.h"
-
 using namespace std;
 
 //Takes in a decimal number and the desiered length of string then
@@ -14,7 +22,9 @@ string Baby::decToBin(signed long dec, int length){
 
 	//Catches the exception of the desired number being 0
 	if(dec==0){
-		myBinary = "00000000000000000000000000000000";
+		for(int i=0; i<length; i++){
+			myBinary += '0';
+		}
 	//Runs if the number is positive
 	}else if(dec>0){
 		int mask = 1;
@@ -202,4 +212,23 @@ int Baby::strToInt(string in)
 	stringstream convert(in);
 	convert >> x;
 	return x;
+}
+
+//function which cleans a file which the program will then write to
+void Baby::cleanFile()
+{
+	ofstream myfile;
+	myfile.open("Assembled.txt", ofstream::out | ofstream::trunc);
+	myfile.close();
+}
+//creates a text file from file parameter and then writes to it using line parameter
+void Baby::writeToFile(string line)
+{
+	//declare and open file
+	ofstream myfile;
+	myfile.open ("Assembled.txt", ofstream::out | ofstream::app);
+	//write to file using parameter
+	myfile << line << endl;
+	//close file
+	myfile.close();
 }

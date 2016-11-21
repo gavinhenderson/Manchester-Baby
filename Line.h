@@ -1,3 +1,12 @@
+/*
+Manchester Baby - AC21009
+Team 5
+Daniel Kelly: 150024764 
+Gavin Henderson: 150010848
+Conor King: 150024944
+William Doherty: 150019622
+*/
+
 #ifndef _VAR_H
 #define _VAR_H
 
@@ -21,12 +30,19 @@ class Line{
 		Line();
 		
 		//Getters and Setters
-		string getLabel();
-		void setLineNo(int i);
+		string getBinary();
+		void setBinary(string newBin);
+		void setOperandBin(string newOperandBin);
+		string getOperandString();
 		int getLineNo();
-		
-		//Figures out what the binary equivalent is
-		void setBinary(Line lines[32]);
+		string getOpcodeString();
+		void setOpcodeString(string newOpcodeString);
+		string getLabel();
+		string getOpcodeBin();
+		string getOperandBin();
+		void setLabel(string newLabel);
+		void setOpcodeBin(string newOpcodeBin);
+		void setLineNo(int newLineNo);
 		
 		//string splitter
 		void splitString(string line);
